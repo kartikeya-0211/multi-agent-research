@@ -4,9 +4,10 @@ Fetches data from:
 - ArXiv
 - GitHub
 - News API
+- LLM integration
 
 Combines and formats results.
 
 Next:
-- LLM integration
+- conversational retrieval quality
 - UI
