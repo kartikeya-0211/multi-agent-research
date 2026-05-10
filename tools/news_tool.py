@@ -9,9 +9,9 @@ def news_search(topic):
         url = "https://newsapi.org/v2/everything"
         params = {
             "q": topic,
-            "from": "2026-04-04",
+            "from": "2026-04-09",
             "sortBy":"popularity",
-            "pageSize":10,
+            "pageSize":5,
             "apiKey": os.getenv("NEWS_API_KEY")
         }
 

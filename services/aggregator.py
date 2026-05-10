@@ -15,27 +15,28 @@ def search_tools(topic):
     return results
 
 def format_results(results):
-    papers = "PAPERS:\n"
+    papers = 'PAPERS:\n'
     for paper in results["papers"]:
-        papers += paper.get("Title", "") + "\n"
-        papers += paper.get("Links", "") + "\n\n"
+        papers += f"- Title: {paper.get('Title', '')}\n"
+        papers += f"  Links: {paper.get('Links', '')}\n\n"
 
     repos = "REPOS:\n"
     for repo in results["repos"]:
-        repos += repo.get("name", "") + "\n"
-        repos += str(repo.get("stars", "")) + "\n"
-        repos += (repo.get("description") or "") + "\n"
-        repos += repo.get("url", "") + "\n\n"
+        repos += f"- Name: {repo.get('name', '')}\n"
+        repos += f"- Stars: {str(repo.get('stars', ''))}\n"
+        repos += f"- Description: {(repo.get('description') or '')}\n"
+        repos += f"- URL: {repo.get('url', '')}\n\n"
 
     news = "NEWS:\n"
     for article in results["news"]:
-        news += article.get("title", "") + "\n"
-        news += (article.get("description") or "") + "\n"
-        news += article.get("source", "") + "\n\n"
+        news += f"- Title: {article['title']}\n"
+        news += f"- Description: {article.get('description') or 'N/A'}\n"
+        news += f"- Source: {article['source']}\n\n"
         
     final_text = papers + news + repos
 
     return final_text
+
 
 results = search_tools("Quantum Computing")
 print(format_results(results))
