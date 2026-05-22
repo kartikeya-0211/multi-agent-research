@@ -1,15 +1,18 @@
 from dotenv import load_dotenv
 import os
 import requests
+from datetime import datetime, timedelta
 
 load_dotenv()
+
+thirty_days_ago = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
 
 def news_search(topic):
     try:
         url = "https://newsapi.org/v2/everything"
         params = {
             "q": topic,
-            "from": "2026-04-09",
+            "from": thirty_days_ago,
             "sortBy":"popularity",
             "pageSize":5,
             "apiKey": os.getenv("NEWS_API_KEY")

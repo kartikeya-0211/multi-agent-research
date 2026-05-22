@@ -36,7 +36,3 @@ def format_results(results):
     final_text = papers + news + repos
 
     return final_text
-
-
-results = search_tools("Quantum Computing")
-print(format_results(results))
