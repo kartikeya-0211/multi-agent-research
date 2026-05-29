@@ -3,15 +3,23 @@ from tools.news_tool import news_search
 from tools.github_tool import search_repos
 
 
-def search_tools(topic):
-    research_papers = search_papers(topic)
-    repo_papers = search_repos(topic)
-    news_papers = news_search(topic)
+def search_tools(topic,user_input):
     results = {
-        "papers": research_papers,
-        "repos": repo_papers,
-        "news": news_papers
+        "papers": [],
+        "repos": [],
+        "news": []
     }
+    if "news" in user_input:
+        results["news"] = news_search(topic)
+    elif "repos" in user_input:
+        results["repos"] = search_repos(topic)
+    elif "papers" in user_input:
+        results["papers"] = search_papers(topic)
+    else:
+        results['news'] = news_search(topic)
+        results['papers'] = search_papers(topic)
+        results['repos'] = search_repos(topic)
+
     return results
 
 def format_results(results):

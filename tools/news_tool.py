@@ -13,7 +13,7 @@ def news_search(topic):
         params = {
             "q": topic,
             "from": thirty_days_ago,
-            "sortBy":"popularity",
+            "sortBy":"relevancy",
             "pageSize":5,
             "apiKey": os.getenv("NEWS_API_KEY")
         }

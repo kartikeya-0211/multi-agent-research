@@ -22,8 +22,10 @@ while True:
      break 
   
   topic = extract_topic(user_input)
-  results = search_tools(topic)
+  results = search_tools(topic,user_input)
   formatted = format_results(results)
+  print(topic)
+  print(formatted)
   
   user_query = "User Query: \n" + user_input + "\n\nData:\n" + formatted
   current_messages = messages + [{"role": "user", "content": user_query}]
